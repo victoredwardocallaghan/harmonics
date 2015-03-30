@@ -1,6 +1,8 @@
 \documentclass{article}
 
 \usepackage{amsmath, amsthm, amssymb}
+\usepackage{tikz}
+\usepackage{float}
 
 \newtheorem{defn}{Defintion}[section]
 \newtheorem{thm}{Theorem}[section]
@@ -186,11 +188,39 @@ Intuitively we can think of the Fourier series as the decomposition of a given
 function $f$ into harmonic components with representative frequencies $k/2\pi,
 k\in\mathbb{N}$ for each of the sine and cosine spanning basis. Here, the
 magnitude of contribution at each of these frequencies is given by the Fourier
-coefficient $c_k$, which is in fact the Fourier transform. This distinction
-between the Fourier \emph{series} and \emph{transform} is important to note.
-See that the Fourier transform is the application of the inner product define
-on the Hilbert space between the function $f$ and the sine and cosine basis
-encapsulated into the complex form of $e^{ix}$.
+coefficient $c_k$, which is in fact the Fourier transform.  The following
+illustration demonstrates this decomposition intuition graphically.
+
+\begin{figure}[H]
+\centering
+\caption{Illustration of a Fourier decomposition of $sinc(x)$.}
+\begin{tikzpicture}[x={(1cm,0.5cm)},z={(0cm,1cm)},y={(1cm,-0.2cm)}]
+
+    %repere
+    \draw[->] (0,-pi,0) --++ (6,0,0) node[above right] {Frequency};
+    \draw[->] (0,-pi,0) --++ (0,6.5,0) node[right] {Time};
+    \draw[->] (0,-pi,0) --++ (0,0,1.5) node[above] {Magnitude};
+
+    \draw [dashed] (1,0,0.2) --++ (4,0,0);
+    \foreach \y in {1,2,...,5}{
+        %sinusoides
+        \draw[blue] plot[domain = -pi:+pi, samples = 300]
+        (\y,\x,{0.2*cos(10*\y/2*(\x) r)});
+        \draw[blue] (\y,-pi-0.15,0) node [left]{$f_{\y}$};
+        \draw[red] (\y,0,{0.2*cos(10*\y/2*(0) r)}) node {\textbf{.}};
+    }
+
+    %sinc
+    \draw[red, thick] plot[domain = -pi:+pi, samples = 2000]
+    (0,\x,{0.02*sin(50*(\x) r)/(\x))});
+
+\end{tikzpicture}
+\end{figure}
+
+This distinction between the Fourier \emph{series} and \emph{transform} is
+important to note.  See that the Fourier transform is the application of the
+inner product define on the Hilbert space between the function $f$ and the sine
+and cosine basis encapsulated into the complex form of $e^{ix}$.
 
 \begin{thm}[Parseval's equation]
   If the function $f \in L^2(\mathbb{R})$ has the Fourier coefficients $c_k$,
@@ -209,5 +239,6 @@ encapsulated into the complex form of $e^{ix}$.
   \]
   form an orthonormal basis for $L^2(-\pi,\pi)$.
 \end{thm}
+
 
 \end{document}
