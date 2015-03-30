@@ -82,4 +82,41 @@ linear operators in which the following relations hold:
 easy, you do it!
 \end{proof}
 
+\subsection{The $L^2(a,b)$ subspace}
+
+Let us consider the restricted case of squarely integrable functions defined on
+the subinterval $S=]a,b[\subseteq\mathbb{R}$ by defining the following space:
+
+\[
+  L^2(a,b) = \left\{ f : S \to \mathbb{C} : \int_S |f(x)|^2 \, dx < \infty \right\}.
+\]
+
+Following that of the case of $L^2(\mathbb{R})$ one can prove that the subspace
+$L^2(a,b)$ is also a Hilbert space equipped with the usual inner product
+restricted in domain. The associated induced norm is then:
+
+\[
+  \|f\|_{L^2(a,b)} = \sqrt{\int_S |f(x)|^2 \, dx}, f \in L^2(a,b).
+\]
+
+Now recall that, for each $p\in[1,\infty[$, the vector space $C_c(\mathbb{R})$
+is a dense subspace of $L^p(\mathbb{R})$. Hence, by considering
+$S$ as a finite interval we see that continoues functions with
+the compact support of $S$ are then dense in $L^2(a,b)$.
+
+\begin{thm}
+  The set of polynomials on $]a,b[\subseteq\mathbb{R}$ is dense in $L^2(a,b)$.
+\end{thm}
+
+\begin{proof}
+We are required to prove that, for each $f\in L^2(a,b)$ and each $\epsilon >0$
+we can find a polynomial $\mathcal{P}$ such that:
+
+\[
+  \| f - \mathcal{P} \|_{L^2(a,b)} = \left( \int_a^b | f(x) - \mathcal{P}(x) |^2 \, dx \right)^{1/2} \leq \epsilon.
+\]
+
+TODO...
+\end{proof}
+
 \end{document}
