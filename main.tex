@@ -1,0 +1,56 @@
+\documentclass{article}
+
+\usepackage{amsmath, amsthm, amssymb}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+
+\title{..}
+\author{Edward O'Callaghan}
+
+\begin{document}
+\maketitle
+
+\section{Hilbert Space $L^2$}
+
+In the special and unique case of fixed $p=2$ in $L^2(\mathbb{R})$ we obtain a Hilbert
+space. Hilbert space $L^2(a,b)$ has the fruitful property that polynomials over
+it form a dense subspace.
+
+Let us define the Banach space $L^p(\mathbb{R})\, \forall p \in [1, \infty[$ and then
+restrict ourselves to the case of $p=2$ to define the space:
+\[
+ L^2(\mathbb{R}) = \left\{ f : \mathbb{R} \rightarrow \mathbb{C} : \int_{-\infty}^{\infty} \left| f(x) \right|^2 dx < \infty \right\}.
+\]
+Herein we show that this space can indeed be equipped with an inner product.
+
+\begin{thm}
+The vector space $L^2(\mathbb{R})$ is a Hilbert space with respect to the inner product:
+  \[
+    \langle f,g \rangle = \int_{-\infty}^{\infty} f(x) \overline{g(x)} \, dx, \, f,g \in L^2(\mathbb{R}).
+  \]
+\end{thm}
+
+\begin{proof}
+We know that, for each $p\in[1,\infty[$, the expression
+  \[
+    \|f\|_p = \left( \int_{-\infty}^{\infty} |f(x)|^p \, dx \right)^{1/p}
+  \]
+defines a norm on $L^p(\mathbb{R})$ that makes $L^p(\mathbb{R})$ a Banach
+space, and so the special case of $p=2$ it trivially follows $L^2(\mathbb{R})$
+is Banach.
+
+The integral in the inner product is well defined when the map $x \mapsto f(x)
+\overline{g(x)}$. is within $L^1(\mathbb{R})$ and hence we are required to prove
+this. By using Holder's inequality, fixing $p=q=2$, we observe $\forall f,g \in
+L^2(\mathbb{R})$ that,
+\[
+  \int_{-\infty}^{\infty} |f(x) \overline{g(x)}| \, dx \leq
+  \left( \int_{-\infty}^{\infty} |f(x)|^2 \, dx \right)^{1/2}
+  \left( \int_{-\infty}^{\infty} |g(x)|^2 \, dx \right)^{1/2} < \infty
+\]
+and so the required results immediately follow.
+\end{proof}
+
+\end{document}

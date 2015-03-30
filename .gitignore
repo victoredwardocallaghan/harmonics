@@ -124,3 +124,10 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+
+*.pdf
+main.aux.make
+main.auxbbl.make
+main.auxbbl.make.temp
+main.auxtarget.make
+main.d
