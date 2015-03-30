@@ -116,7 +116,36 @@ we can find a polynomial $\mathcal{P}$ such that:
   \| f - \mathcal{P} \|_{L^2(a,b)} = \left( \int_a^b | f(x) - \mathcal{P}(x) |^2 \, dx \right)^{1/2} \leq \epsilon.
 \]
 
-TODO...
+Note that we may extend any function $f \in L^2(a,b)$ to $f \in L^2(a,b)$ by
+fixing $f(x)=0$ for any $x \notin [a,b]$. Now recall that we can find a
+function $g \in C_c(\mathbb{R})$ such that $\| f  - g \|_{L^2(\mathbb{R})} \leq
+\epsilon /2$. This implies the following:
+
+\begin{align*}
+  \| f - g \|_{L^2(a,b)} &= \sqrt{\int_a^b | f(x) - g(x) |^2 \, dx}
+  \\ &\leq \sqrt{\int_{-\infty}^{\infty} | f(x) - g(x) |^2 \, dx}
+  \\ &\leq \epsilon /2.
+\end{align*}
+
+The restriction of $g |_{[a,b]}$ is continuous and so we know there exists a
+polynomial $\mathcal{P}$ such that:
+
+\begin{align*}
+  | g(x) - \mathcal{P}(x) | &\leq \frac{\epsilon}{2\sqrt{b-a}}, \, \forall x \in [a,b].
+  \intertext{Given some choose of $\mathcal{P}$ implies that}
+  \| g - \mathcal{P} \|_{L^2(a,b)} &= \sqrt{\int_a^b | g(x) - \mathcal{P}(x) |^2 \, dx}
+  \\ &= \sqrt{\int_a^b \left( \frac{\epsilon}{2\sqrt{b-a}} \right)^2 \, dx}
+  \\ &\leq \epsilon /2.
+\end{align*}
+
+Combining these results we obtain the following:
+
+\begin{align*}
+  \| f - \mathcal{P} \|_{L^2(a,b)} &= \| (f-g) + (g-\mathcal{P}) \|_{L^2(a,b)}
+  \\ &\leq \| f - g \|_{L^2(a,b)} + \| g - \mathcal{P} \|_{L^2(a,b)}
+  \\ &\leq \epsilon.
+\end{align*}
+
 \end{proof}
 
 \end{document}
