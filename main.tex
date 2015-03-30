@@ -2,6 +2,7 @@
 
 \usepackage{amsmath, amsthm, amssymb}
 
+\newtheorem{defn}{Defintion}[section]
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
@@ -51,6 +52,34 @@ L^2(\mathbb{R})$ that,
   \left( \int_{-\infty}^{\infty} |g(x)|^2 \, dx \right)^{1/2} < \infty
 \]
 and so the required results immediately follow.
+\end{proof}
+
+\subsection{Linear Operators on $L^2(\mathbb{R})$}
+
+\begin{defn}
+We may define three classes of linear operators on $L^2(\mathbb{R})$:
+\begin{enumerate}
+\item For $a\in\mathbb{R}$, the operator $T_a$, called \textbf{translation} by
+      $a$, is defined by \[(T_a f)(x) = f(x-a), x\in\mathbb{R}\].
+\item For $b\in\mathbb{R}$, the operator $M_b$, called \textbf{modulation} by
+      $b$, is defined by \[(M_b f)(x) = e^{2\pi i b x} f(x), x\in\mathbb{R}\].
+\item For $c>0$, the operator $D_c$, called \textbf{dilation} by $c$, is defined
+      by \[(D_c f)(x) = \frac{1}{\sqrt{c}} f(x/c), x\in\mathbb{R}\].
+\end{enumerate}
+\end{defn}
+
+\begin{lem}
+The operators $T_a,M_b,D_c : L^2(\mathbb{R}) \to L^2(\mathbb{R})$ are unitary
+linear operators in which the following relations hold:
+\begin{enumerate}
+\item $T_a^{-1} = T_{-a} = (T_a)^{*}$,
+\item $M_b^{-1} = M_{-b} = (M_b)^{*}$,
+\item $D_c^{-1} = D_{1/c} = (D_c)^{*}$.
+\end{enumerate}
+\end{lem}
+
+\begin{proof}
+easy, you do it!
 \end{proof}
 
 \end{document}
