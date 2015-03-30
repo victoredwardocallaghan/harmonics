@@ -148,4 +148,66 @@ Combining these results we obtain the following:
 
 \end{proof}
 
+\subsection{Fourier Series}
+
+The Fourier series is a way to express certain functions with particular
+properties in terms of a power series of trigonometric functions. More
+generally, the series is a generator function for which sinusoids and
+co-sinusoids form the orthonormal basis. The quintessential property is that of
+periodicity for which we make precise here:
+
+\begin{defn}
+  A function $f$ defined over the reals is said to be a \emph{periodic
+  function} with period $2\pi$ iff, $f(x + 2\pi) = f(x), \forall x \in \mathbb{R}$.
+\end{defn}
+
+Naturally we may then consider functions $f \in L^2(-\pi,\pi)$ as periodic
+functions with period $2\pi$. Recall that $L^2(-\pi,\pi)$ is a Hilbert space
+equipped with the inner product
+
+\[
+  \langle f,g \rangle = \int_{-\pi}^{\pi} f(x) \overline{g(x)} \, dx,
+  \,\, f,g \in L^2(-\pi,\pi).
+\]
+
+Formally we may now define the Fourier series in the complex form as follows:
+
+\begin{defn}
+  \[
+    f \sim \sum_{k=-\infty}^{\infty} c_k e^{ikx};
+  \]
+  where the coefficients $c_k$ are given by the integral transform:
+  \[
+    c_k = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) e^{-ikx} \, dx.
+  \]
+\end{defn}
+
+Intuitively we can think of the Fourier series as the decomposition of a given
+function $f$ into harmonic components with representative frequencies $k/2\pi,
+k\in\mathbb{N}$ for each of the sine and cosine spanning basis. Here, the
+magnitude of contribution at each of these frequencies is given by the Fourier
+coefficient $c_k$, which is in fact the Fourier transform. This distinction
+between the Fourier \emph{series} and \emph{transform} is important to note.
+See that the Fourier transform is the application of the inner product define
+on the Hilbert space between the function $f$ and the sine and cosine basis
+encapsulated into the complex form of $e^{ix}$.
+
+\begin{thm}[Parseval's equation]
+  If the function $f \in L^2(\mathbb{R})$ has the Fourier coefficients $c_k$,
+  $k \in \mathbb{Z}$, then
+
+  \[
+    \frac{1}{2\pi} \int_{-\pi}^{\pi} | f(x) |^2 \, dx
+    = \sum_{k \in \mathbb{Z}} | c_k |^2.
+  \]
+\end{thm}
+
+\begin{thm}
+  The functions
+  \[
+    \left\{ \frac{1}{2\pi} e^{ikx} \right\}_{k \in \mathbb{Z}}
+  \]
+  form an orthonormal basis for $L^2(-\pi,\pi)$.
+\end{thm}
+
 \end{document}
